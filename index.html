@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta name="viewport" content="width=device-width" />
+
+		<title>Differences in link colors depending on whether a CSS layer is present</title>
+
+		<style>
+			.no-layer {
+				& :any-link {
+					background-color: white;
+					color: black;
+				}
+			}
+
+			@layer foo {
+				.with-layer {
+					& :any-link {
+						background-color: white;
+						color: black;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Differences in link colors depending on whether a CSS layer is present</h1>
+
+			<div class="no-layer">
+				<a href="#">no layer</a>
+			</div>
+			<div class="with-layer">
+				<a href="#">with layer</a>
+			</div>
+		</main>
+	</body>
+</html>
